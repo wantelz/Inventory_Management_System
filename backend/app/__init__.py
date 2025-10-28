@@ -9,7 +9,7 @@ import urllib.parse
 
 load_dotenv()
 
-# Configuración MongoDB con TLS
+# Configuration MongoDB with TLS
 try:
     mongo_client = MongoClient(
         os.getenv('MONGO_URI'),

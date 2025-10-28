@@ -6,7 +6,7 @@ from bson import ObjectId
 items_bp = Blueprint('items', __name__)
 
 def serialize_item(item):
-    """Convert MongoDB item to JSON-serializable format"""
+    #Convert MongoDB item to JSON-serializable format
     item['_id'] = str(item['_id'])
     item['created_at'] = item.get('created_at').isoformat() if item.get('created_at') else None
     item['updated_at'] = item.get('updated_at').isoformat() if item.get('updated_at') else None
@@ -15,7 +15,7 @@ def serialize_item(item):
 @items_bp.route('/', methods=['GET'])
 @jwt_required()
 def get_items():
-    """Get all items with pagination and filters"""
+    #Get all items with pagination and filters
     try:
         page = int(request.args.get('page', 1))
         limit = int(request.args.get('limit', 10))
